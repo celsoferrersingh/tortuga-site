@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tortuga — Proteção ativa para a indústria</title>
+<meta name="description" content="Tortuga: visão computacional que enxerga os EPIs, entende a postura e antecipa o risco. Proteção ativa para o chão de fábrica. Innovation Challenge CUP 2026 · FIAP × SPI." />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:title" content="Tortuga — Proteção ativa para a indústria" />
+<meta property="og:description" content="Enxerga os EPIs, entende a postura e antecipa o risco. Segurança que age antes do acidente." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --ink:#1d1d1f; --gray:#6e6e73; --gray2:#86868b;
+    --blue:#0071e3; --blue-d:#0058b4;
+    --bg:#ffffff; --bg2:#f5f5f7; --line:#d2d2d7;
+    --green:#1b9c4a; --red:#e0362c; --amber:#e08a00;
+    --shadow:0 8px 30px rgba(0,0,0,.08); --shadow-lg:0 20px 60px rgba(0,0,0,.12);
+    --maxw:1120px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{display:inline-block;font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--blue);text-transform:none;margin-bottom:14px}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.06}
+  section{position:relative}
+  .sec-pad{padding:110px 0}
+  .center{text-align:center}
+  .muted{color:var(--gray)}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+  header.nav.scrolled{border-bottom:1px solid var(--line)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink)}
+  .brand svg{display:block}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:var(--ink);font-size:14px;opacity:.85;transition:opacity .2s}
+  .nav-links a:hover{opacity:1;color:var(--blue)}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:4px 0;transition:.3s}
+
+  /* HERO */
+  .hero{padding:76px 0 30px;text-align:center;background:radial-gradient(1200px 500px at 50% -10%, #eef5ff 0%, #ffffff 60%)}
+  .hero h1{font-size:clamp(52px,10vw,112px);font-weight:700;background:linear-gradient(180deg,#1d1d1f 0%,#333 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .tagline{font-size:clamp(22px,4.4vw,40px);font-weight:600;margin-top:6px;letter-spacing:-.02em}
+  .hero .tagline b{background:linear-gradient(90deg,var(--blue),#38b6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{max-width:640px;margin:22px auto 0;font-size:clamp(17px,2.2vw,21px);color:var(--gray)}
+  .cta{display:inline-flex;gap:14px;margin-top:30px;flex-wrap:wrap;justify-content:center}
+  .btn{display:inline-block;padding:12px 26px;border-radius:980px;font-size:16px;font-weight:500;transition:transform .15s, background .2s, box-shadow .2s}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--blue-d);transform:translateY(-1px)}
+  .btn-ghost{color:var(--blue)}
+  .btn-ghost:hover{text-decoration:underline}
+  .hero-visual{max-width:900px;margin:48px auto 0}
+  .hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,60,140,.14))}
+
+  /* STATEMENT */
+  .statement{padding:120px 0}
+  .statement p{font-size:clamp(28px,4.6vw,52px);font-weight:600;letter-spacing:-.02em;max-width:920px;margin:0 auto;line-height:1.12}
+  .statement .hl{color:var(--blue)}
+
+  /* PILLARS */
+  .pillars{background:var(--bg2)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:#fff;border-radius:20px;padding:34px 30px;box-shadow:var(--shadow)}
+  .card .ic{width:56px;height:56px;margin-bottom:18px}
+  .card h3{font-size:24px;margin-bottom:8px}
+  .card p{color:var(--gray);font-size:16px}
+
+  /* FEATURE ROWS */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:90px 0;border-top:1px solid var(--line)}
+  .feature:first-of-type{border-top:0}
+  .feature.rev .f-text{order:2}
+  .feature .f-text h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:16px}
+  .feature .f-text p{font-size:18px;color:var(--gray);margin-bottom:14px}
+  .feature .f-list{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+  .feature .f-list li{display:flex;gap:11px;align-items:flex-start;font-size:16px}
+  .feature .f-list li svg{flex:0 0 auto;margin-top:3px}
+  .f-art{width:100%}
+  .f-art svg{width:100%;height:auto;border-radius:22px}
+  .tag{display:inline-block;font-size:13px;font-weight:600;color:var(--blue);background:#eaf3ff;padding:5px 12px;border-radius:980px;margin-bottom:14px}
+  .tag.gold{color:#a86400;background:#fdf1dc}
+
+  /* STATS */
+  .stats{background:#0b0b0f;color:#fff}
+  .stats .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+  .stat .num{font-size:clamp(40px,6vw,68px);font-weight:700;letter-spacing:-.03em;background:linear-gradient(90deg,#4aa3ff,#8ad0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{color:#b0b0b8;font-size:15px;margin-top:6px}
+
+  /* FLOW */
+  .flow-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  .flow-step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center;position:relative}
+  .flow-step .n{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .flow-step h4{font-size:19px;margin-bottom:8px}
+  .flow-step p{color:var(--gray);font-size:15px}
+  .flow-step .fic{width:52px;height:52px;margin:0 auto 12px}
+
+  /* INNOVATION banner */
+  .inno{background:linear-gradient(135deg,#0071e3,#33a0ff);color:#fff;border-radius:28px;padding:64px 48px;text-align:center;box-shadow:var(--shadow-lg)}
+  .inno h2{font-size:clamp(28px,4.4vw,46px);margin-bottom:14px}
+  .inno p{max-width:720px;margin:0 auto;font-size:18px;opacity:.95}
+  .inno .chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .inno .chip{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:980px;padding:9px 18px;font-size:15px;font-weight:500}
+
+  /* NORMS */
+  .norms .grid3{gap:22px}
+  .norm{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+  .norm .code{font-weight:700;color:var(--blue);font-size:15px;letter-spacing:.02em}
+  .norm h4{font-size:18px;margin:8px 0 6px}
+  .norm p{color:var(--gray);font-size:15px}
+
+  /* PREDITIVO explainer */
+  .stat-k{font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--blue);text-transform:uppercase;margin-bottom:6px}
+  .formula{margin-top:16px;font-family:"SF Mono",ui-monospace,"Consolas",monospace;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:14.5px;color:var(--ink);text-align:center}
+  .numbox{margin:30px auto 0;max-width:840px;background:#eaf3ff;border:1px solid #cfe3ff;border-radius:16px;padding:22px 26px;font-size:clamp(16px,2vw,18px);color:#0a3d73;text-align:center}
+  .fcap{margin-top:8px;font-size:13px;color:var(--gray2);text-align:center}
+  .essence{margin:22px auto 0;text-align:center;font-size:16px;color:var(--gray);max-width:680px}
+  details.math{margin-top:16px}
+  details.math summary{list-style:none;cursor:pointer;color:var(--blue);font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px;user-select:none;-webkit-user-select:none}
+  details.math summary::-webkit-details-marker{display:none}
+  details.math summary::before{content:"›";display:inline-block;font-weight:700;transition:transform .2s}
+  details.math[open] summary::before{transform:rotate(90deg)}
+  details.math .formula{margin-top:12px}
+
+  /* FOOTER */
+  footer{background:var(--bg2);padding:70px 0 40px;text-align:center;border-top:1px solid var(--line)}
+  footer .flogo{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:22px;margin-bottom:10px}
+  footer .team{margin-top:26px}
+  footer .team .t-title{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--gray2);margin-bottom:12px}
+  footer .team .names{display:flex;gap:16px 36px;flex-wrap:wrap;justify-content:center}
+  footer .member{display:flex;flex-direction:column;align-items:center;gap:2px}
+  footer .member .mn{color:var(--ink);font-weight:600;font-size:15px}
+  footer .member .rm{color:var(--gray2);font-size:12.5px;letter-spacing:.02em}
+  footer .small{color:var(--gray2);font-size:13px;margin-top:26px;line-height:1.7}
+
+  /* reveal */
+  .no-js .reveal{opacity:1}
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .sec-pad{padding:80px 0}
+    .nav-links{position:fixed;inset:52px 0 auto 0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);flex-direction:column;gap:0;padding:6px 0;border-bottom:1px solid var(--line);transform:translateY(-120%);transition:transform .35s;height:auto}
+    .nav-links.open{transform:none}
+    .nav-links a{padding:15px 24px;width:100%;font-size:17px;border-bottom:1px solid #ececec}
+    .nav-toggle{display:block}
+    .grid3,.grid4,.flow-steps,.stats .grid4{grid-template-columns:1fr!important}
+    .feature{grid-template-columns:1fr;gap:34px;padding:64px 0}
+    .feature.rev .f-text{order:0}
+    .statement{padding:80px 0}
+    .inno{padding:44px 26px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 4c8 0 14 6.4 14 15 0 8.2-6 14-14 14S6 27.2 6 19C6 10.4 12 4 20 4Z" fill="#0071e3"/>
+        <path d="M20 8.5c5.6 0 9.7 4.4 9.7 10.4 0 5.7-4.1 9.8-9.7 9.8s-9.7-4.1-9.7-9.8C10.3 12.9 14.4 8.5 20 8.5Z" fill="#fff" opacity=".12"/>
+        <path d="M20 9.5 25 13v6l-5 3.5L15 19v-6l5-3.5Z" fill="#fff" opacity=".9"/>
+        <path d="M20 9.5V22.5M15 13l10 6M25 13l-10 6" stroke="#0071e3" stroke-width="1"/>
+        <circle cx="31" cy="14" r="2.4" fill="#0071e3"/>
+      </svg>
+      Tortuga
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#visao">Visão geral</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#preditivo">Diferencial</a>
+      <a href="#como">Como funciona</a>
+      <a href="#equipe">Equipe</a>
+    </nav>
+    <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero" id="visao">
+  <div class="wrap">
+    <span class="eyebrow reveal">Proteção ativa para a indústria</span>
+    <h1 class="reveal">Tortuga</h1>
+    <div class="tagline reveal">Enxerga. Entende. <b>Antecipa.</b></div>
+    <p class="lead reveal">Visão computacional que monitora os EPIs, analisa a postura e prevê o risco de acidente — em tempo real, no chão de fábrica. A segurança que age <b>antes</b> do incidente.</p>
+    <div class="cta reveal">
+      <a href="#recursos" class="btn btn-primary">Conheça os recursos</a>
+      <a href="#preditivo" class="btn btn-ghost">O diferencial &rsaquo;</a>
+    </div>
+
+    <div class="hero-visual reveal">
+      <svg viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Câmera detectando EPIs em um operador">
+        <defs>
+          <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f7fbff"/><stop offset="1" stop-color="#eaf1fb"/>
+          </linearGradient>
+        </defs>
+        <rect x="30" y="20" width="840" height="430" rx="26" fill="url(#scr)" stroke="#d9e3f2"/>
+        <!-- scan brackets -->
+        <g stroke="#0071e3" stroke-width="3" fill="none" opacity=".8">
+          <path d="M70 70 L70 100 M70 70 L100 70"/>
+          <path d="M830 70 L830 100 M830 70 L800 70"/>
+          <path d="M70 400 L70 370 M70 400 L100 400"/>
+          <path d="M830 400 L830 370 M830 400 L800 400"/>
+        </g>
+        <!-- worker -->
+        <g>
+          <!-- hard hat -->
+          <path d="M395 150 q55 -60 110 0 Z" fill="#ffcf3f"/>
+          <rect x="388" y="150" width="124" height="12" rx="6" fill="#eab308"/>
+          <!-- head -->
+          <circle cx="450" cy="185" r="30" fill="#e9c6a3"/>
+          <!-- glasses -->
+          <rect x="428" y="178" width="44" height="12" rx="6" fill="#0b0b0f" opacity=".85"/>
+          <!-- body / vest -->
+          <path d="M405 225 q45 -18 90 0 l16 150 h-122 Z" fill="#ff8a1f"/>
+          <rect x="432" y="230" width="36" height="140" fill="#ffe3c2" opacity=".55"/>
+          <path d="M405 265 h95 M405 305 h95" stroke="#d9d9dd" stroke-width="6"/>
+          <!-- arms -->
+          <path d="M405 235 l-40 70" stroke="#ff8a1f" stroke-width="22" stroke-linecap="round"/>
+          <path d="M495 235 l40 70" stroke="#ff8a1f" stroke-width="22" stroke-linecap="round"/>
+          <!-- gloves (missing highlighted) -->
+          <circle cx="360" cy="312" r="14" fill="#e9c6a3"/>
+          <circle cx="540" cy="312" r="14" fill="#e9c6a3"/>
+        </g>
+        <!-- detection boxes -->
+        <g font-family="var(--font)" font-size="15" font-weight="600">
+          <rect x="392" y="120" width="116" height="52" rx="8" fill="none" stroke="#1b9c4a" stroke-width="3"/>
+          <rect x="392" y="120" width="86" height="20" rx="4" fill="#1b9c4a"/>
+          <text x="399" y="135" fill="#fff">Capacete ✓</text>
+
+          <rect x="398" y="220" width="104" height="120" rx="8" fill="none" stroke="#1b9c4a" stroke-width="3"/>
+          <rect x="398" y="220" width="70" height="20" rx="4" fill="#1b9c4a"/>
+          <text x="405" y="235" fill="#fff">Colete ✓</text>
+
+          <rect x="336" y="292" width="52" height="44" rx="8" fill="none" stroke="#e0362c" stroke-width="3"/>
+          <rect x="326" y="272" width="86" height="20" rx="4" fill="#e0362c"/>
+          <text x="333" y="287" fill="#fff">Luva ✗</text>
+        </g>
+        <!-- belt pulse -->
+        <g>
+          <rect x="690" y="330" width="150" height="86" rx="16" fill="#0b0b0f"/>
+          <circle cx="716" cy="356" r="7" fill="#e0362c"><animate attributeName="opacity" values="1;.25;1" dur="1s" repeatCount="indefinite"/></circle>
+          <rect x="732" y="349" width="86" height="16" rx="4" fill="#1a1a22"/>
+          <text x="738" y="362" fill="#ff5a4d" font-size="12" font-weight="700">ALERTA</text>
+          <text x="716" y="392" fill="#c9c9d1" font-size="12">Cinto do operador</text>
+          <g stroke="#e0362c" fill="none" opacity=".7">
+            <path d="M676 373 q-12 0 -12 12"><animate attributeName="opacity" values=".2;.8;.2" dur="1.2s" repeatCount="indefinite"/></path>
+            <path d="M668 373 q-20 0 -20 20"><animate attributeName="opacity" values=".1;.6;.1" dur="1.2s" begin=".2s" repeatCount="indefinite"/></path>
+          </g>
+        </g>
+        <text x="70" y="435" fill="#8a97ab" font-size="13" font-weight="600">TORTUGA · detecção ao vivo</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement center">
+  <div class="wrap">
+    <p class="reveal">Um EPI esquecido pode custar uma vida.<br><span class="hl">E se a fábrica pudesse agir antes do acidente?</span></p>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars sec-pad" id="recursos">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:56px">
+      <span class="eyebrow reveal">Três capacidades, um só sistema</span>
+      <h2 class="reveal" style="font-size:clamp(30px,5vw,52px)">Não é uma câmera. É um guardião.</h2>
+    </div>
+    <div class="grid3">
+      <div class="card reveal">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="9" stroke="#0071e3" stroke-width="3"/><circle cx="24" cy="24" r="3" fill="#0071e3"/><path d="M6 24C10 15 16 11 24 11s14 4 18 13c-4 9-10 13-18 13S10 33 6 24Z" stroke="#0071e3" stroke-width="3" stroke-linejoin="round"/></svg>
+        <h3>Enxerga</h3>
+        <p>Detecta capacete, óculos, luvas, colete, protetor auricular e botas — em cada operador, a cada quadro do vídeo.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="9" r="4" fill="#0071e3"/><path d="M24 13v14M24 20l-10-4M24 20l10-4M24 27l-8 12M24 27l8 12" stroke="#0071e3" stroke-width="3" stroke-linecap="round"/><circle cx="14" cy="16" r="2.4" fill="#0071e3"/><circle cx="34" cy="16" r="2.4" fill="#0071e3"/></svg>
+        <h3>Entende</h3>
+        <p>Analisa a postura em 17 pontos do corpo: ergonomia, esforço, quedas e aproximação de zonas de risco.</p>
+      </div>
+      <div class="card reveal">
+        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M8 34l9-10 7 6 12-16" stroke="#0071e3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 14h8v8" stroke="#0071e3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="24" r="2.6" fill="#0071e3"/><circle cx="24" cy="30" r="2.6" fill="#0071e3"/></svg>
+        <h3>Antecipa</h3>
+        <p>Modela a probabilidade de um incidente no próximo turno — e aponta, com estatística, quem e onde precisa de atenção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="wrap sec-pad">
+
+  <!-- Visão -->
+  <div class="feature">
+    <div class="f-text reveal">
+      <span class="tag">Visão computacional</span>
+      <h2>Vê cada EPI, em tempo real</h2>
+      <p>Redes neurais de última geração processam o vídeo das câmeras e identificam, quadro a quadro, quais equipamentos de proteção o operador está — ou não está — usando.</p>
+      <ul class="f-list">
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Capacete, óculos, luvas, colete, protetor auricular e botas</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Distingue presente e ausente, operador por operador</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Treinado também com fotos reais do parque fabril</li>
+      </ul>
+    </div>
+    <div class="f-art reveal">
+      <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" aria-label="Detecção de EPIs">
+        <rect width="500" height="340" rx="20" fill="#f5f5f7"/>
+        <rect x="150" y="70" width="120" height="60" rx="8" fill="none" stroke="#1b9c4a" stroke-width="3"/>
+        <rect x="150" y="70" width="86" height="20" rx="4" fill="#1b9c4a"/><text x="158" y="85" fill="#fff" font-size="13" font-weight="600" font-family="var(--font)">Capacete</text>
+        <rect x="140" y="150" width="140" height="130" rx="8" fill="none" stroke="#0071e3" stroke-width="3"/>
+        <rect x="140" y="150" width="70" height="20" rx="4" fill="#0071e3"/><text x="148" y="165" fill="#fff" font-size="13" font-weight="600" font-family="var(--font)">Colete</text>
+        <rect x="320" y="120" width="110" height="46" rx="8" fill="none" stroke="#e0362c" stroke-width="3"/>
+        <rect x="320" y="100" width="86" height="20" rx="4" fill="#e0362c"/><text x="328" y="115" fill="#fff" font-size="13" font-weight="600" font-family="var(--font)">Óculos ✗</text>
+        <path d="M180 100 q30 -34 60 0" stroke="#eab308" stroke-width="10" fill="none"/>
+        <circle cx="210" cy="120" r="18" fill="#e9c6a3"/>
+        <path d="M175 175 q35 -14 70 0 l10 95 h-90 Z" fill="#ff8a1f"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Ergonomia -->
+  <div class="feature rev">
+    <div class="f-text reveal">
+      <span class="tag">Pose &amp; ergonomia · NR-17 / NR-35</span>
+      <h2>Enxerga o risco na postura</h2>
+      <p>Além do EPI, o Tortuga entende o corpo: reconstrói o esqueleto do operador em 17 pontos e avalia esforço, agachamento, alcance excessivo — e detecta quedas antes do impacto.</p>
+      <ul class="f-list">
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Escores ergonômicos RULA e REBA automáticos</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Predição de queda e detecção de pessoa caída</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Alerta de aproximação a zonas restritas</li>
+      </ul>
+    </div>
+    <div class="f-art reveal">
+      <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" aria-label="Estimativa de pose">
+        <rect width="500" height="340" rx="20" fill="#f5f5f7"/>
+        <g stroke="#0071e3" stroke-width="4" stroke-linecap="round" fill="none">
+          <path d="M250 90 V170 M250 120 L200 150 M250 120 L300 150 M250 170 L215 250 M250 170 L285 250 M215 250 L205 300 M285 250 L295 300"/>
+        </g>
+        <g fill="#0071e3">
+          <circle cx="250" cy="78" r="12"/><circle cx="250" cy="120" r="6"/><circle cx="200" cy="150" r="6"/><circle cx="300" cy="150" r="6"/>
+          <circle cx="250" cy="170" r="6"/><circle cx="215" cy="250" r="6"/><circle cx="285" cy="250" r="6"/><circle cx="205" cy="300" r="6"/><circle cx="295" cy="300" r="6"/>
+        </g>
+        <path d="M300 150 A40 40 0 0 1 285 190" stroke="#e08a00" stroke-width="3" fill="none"/>
+        <text x="315" y="180" fill="#e08a00" font-size="14" font-weight="700" font-family="var(--font)">108°</text>
+        <rect x="40" y="40" width="150" height="26" rx="6" fill="#0071e3"/><text x="52" y="58" fill="#fff" font-size="13" font-weight="600" font-family="var(--font)">RULA 6 · atenção</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Cinto -->
+  <div class="feature">
+    <div class="f-text reveal">
+      <span class="tag">Cinto inteligente · Hardware próprio ESP32</span>
+      <h2>Não é só software. É hardware que age.</h2>
+      <p>Aqui está um diferencial que quase nenhum sistema tem: um <b>cinto vestível com microcontrolador ESP32</b>, desenvolvido pela própria equipe. Enquanto outras soluções só acendem um alerta numa tela distante, o Tortuga leva o aviso <b>ao corpo de quem está em risco</b> — com LED, tela OLED, som e vibração, na hora.</p>
+      <ul class="f-list">
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Hardware dedicado na borda (edge): reação em menos de 200 ms</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Protótipo próprio, de baixo custo e baixo consumo</li>
+        <li><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 10l4 4 8-9" stroke="#1b9c4a" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Mensagem educativa (orienta, não pune) e volta ao verde sozinho</li>
+      </ul>
+    </div>
+    <div class="f-art reveal">
+      <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" aria-label="Cinto ESP32">
+        <rect width="500" height="340" rx="20" fill="#f5f5f7"/>
+        <rect x="120" y="120" width="260" height="120" rx="22" fill="#0b0b0f"/>
+        <circle cx="160" cy="150" r="10" fill="#1b9c4a"/>
+        <circle cx="160" cy="210" r="10" fill="#e0362c"><animate attributeName="opacity" values="1;.3;1" dur=".9s" repeatCount="indefinite"/></circle>
+        <rect x="195" y="140" width="150" height="80" rx="10" fill="#0a1330" stroke="#20325f"/>
+        <text x="210" y="172" fill="#4aa3ff" font-size="16" font-weight="700" font-family="var(--font)">ATENÇÃO</text>
+        <text x="210" y="196" fill="#9fb2d6" font-size="12" font-family="var(--font)">Use o capacete</text>
+        <g stroke="#0071e3" fill="none" opacity=".8">
+          <path d="M395 150 q22 30 0 60"><animate attributeName="opacity" values=".2;.9;.2" dur="1.1s" repeatCount="indefinite"/></path>
+          <path d="M410 138 q34 42 0 84"><animate attributeName="opacity" values=".1;.6;.1" dur="1.1s" begin=".2s" repeatCount="indefinite"/></path>
+        </g>
+        <text x="120" y="285" fill="#8a97ab" font-size="13" font-weight="600" font-family="var(--font)">Cinto ESP32 · LED · OLED · buzzer · vibração</text>
+      </svg>
+    </div>
+  </div>
+
+</section>
+
+<!-- PREDITIVO (destaque) -->
+<section class="wrap sec-pad" id="preditivo">
+  <div class="feature rev" style="border-top:0;padding-top:0">
+    <div class="f-text reveal">
+      <span class="tag gold">O grande diferencial · Ciência de dados</span>
+      <h2>Não conta acidentes. Prevê.</h2>
+      <p>A maioria dos sistemas apenas registra o que já aconteceu. O Tortuga vai além: modela a <b>taxa de eventos</b> de cada operador e de cada área com a distribuição de Poisson e calcula a <b>probabilidade de um incidente no próximo turno</b>.</p>
+      <p>E valida com rigor: um teste de hipóteses aponta quem está significativamente acima da média — sinal real, não acaso. O gestor age de forma preventiva, com treinamento dirigido a quem mais precisa.</p>
+    </div>
+    <div class="f-art reveal">
+      <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" aria-label="Risco preditivo">
+        <rect width="500" height="340" rx="20" fill="#0b0b0f"/>
+        <text x="34" y="46" fill="#fff" font-size="16" font-weight="700" font-family="var(--font)">Risco no próximo turno</text>
+        <!-- bars -->
+        <g font-family="var(--font)" font-size="12">
+          <text x="34" y="96" fill="#c9c9d1">OP-007</text><rect x="120" y="84" width="330" height="16" rx="8" fill="#1a1a22"/><rect x="120" y="84" width="258" height="16" rx="8" fill="#e0362c"/><text x="388" y="97" fill="#ff8f86" font-weight="700">78%</text>
+          <text x="34" y="136" fill="#c9c9d1">Área Prensa</text><rect x="120" y="124" width="330" height="16" rx="8" fill="#1a1a22"/><rect x="120" y="124" width="205" height="16" rx="8" fill="#e08a00"/><text x="335" y="137" fill="#ffc36b" font-weight="700">Alto</text>
+          <text x="34" y="176" fill="#c9c9d1">OP-003</text><rect x="120" y="164" width="330" height="16" rx="8" fill="#1a1a22"/><rect x="120" y="164" width="120" height="16" rx="8" fill="#4aa3ff"/><text x="250" y="177" fill="#9fd0ff" font-weight="700">Médio</text>
+          <text x="34" y="216" fill="#c9c9d1">OP-011</text><rect x="120" y="204" width="330" height="16" rx="8" fill="#1a1a22"/><rect x="120" y="204" width="60" height="16" rx="8" fill="#1b9c4a"/><text x="190" y="217" fill="#8ce0a6" font-weight="700">Baixo</text>
+        </g>
+        <path d="M34 300 C120 300 150 250 210 250 S340 210 466 190" stroke="#4aa3ff" stroke-width="3" fill="none"/>
+        <text x="300" y="316" fill="#6b7488" font-size="12" font-family="var(--font)">P(evento) = 1 − e^(−λ̂)   ·   validado por teste de hipóteses</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="center" style="margin:70px 0 40px">
+    <span class="eyebrow reveal">A ciência por trás, sem complicação</span>
+    <h2 class="reveal" style="font-size:clamp(26px,4.4vw,42px)">Como o Tortuga prevê o risco</h2>
+    <p class="muted reveal" style="max-width:660px;margin:14px auto 0;font-size:17px">Por baixo há ciência de dados de verdade — as mesmas técnicas que seguradoras e a saúde pública usam. Aqui está, em linguagem simples.</p>
+  </div>
+  <div class="grid3">
+    <div class="card reveal">
+      <div class="stat-k">1 · Distribuição de Poisson</div>
+      <h3>Prever o provável</h3>
+      <p>Dá pra estimar quantas ligações um call center recebe por hora. Do mesmo jeito, dá pra estimar quantas vezes um operador tende a esquecer um EPI por turno — e, com esse ritmo, calcular a chance de acontecer de novo no próximo turno.</p>
+      <details class="math"><summary>Ver a matemática</summary>
+        <div class="formula">P(≥ 1 evento) = 1 − e^(−λ̂)</div>
+        <div class="fcap">Distribuição de Poisson · quanto maior o ritmo, maior a chance.</div>
+      </details>
+    </div>
+    <div class="card reveal">
+      <div class="stat-k">2 · Teorema do Limite Central</div>
+      <h3>Confiar na medida</h3>
+      <p>Um único turno pode enganar. Mas, juntando muitos, o resultado se estabiliza — como uma pesquisa que fica mais certeira quanto mais gente responde. Em vez de um número solto, o Tortuga mostra uma faixa com margem de erro honesta.</p>
+      <details class="math"><summary>Ver a matemática</summary>
+        <div class="formula">λ̂ ± 1,96 · √(λ̂ ⁄ turnos)</div>
+        <div class="fcap">Teorema do Limite Central · a base das “margens de erro” (intervalo de 95%).</div>
+      </details>
+    </div>
+    <div class="card reveal">
+      <div class="stat-k">3 · Teste de hipóteses</div>
+      <h3>Separar sinal de azar</h3>
+      <p>Teve mais ocorrências: foi tendência ou só um dia ruim? O sistema só acende o alerta quando a chance de ser mera coincidência é bem pequena — assim ninguém é cobrado injustamente por azar.</p>
+      <details class="math"><summary>Ver a matemática</summary>
+        <div class="formula">p &lt; 0,05  (p-valor de Poisson)</div>
+        <div class="fcap">Teste de hipóteses · o critério que a ciência usa para confirmar um resultado.</div>
+      </details>
+    </div>
+  </div>
+  <div class="numbox reveal"><b>Traduzindo:</b> um operador que costuma escorregar ~1,5 vez por turno tem cerca de <b>78%</b> de chance de repetir no próximo — e a conta prova que não é coincidência. O gestor age <b>antes</b>, com quem realmente precisa.</div>
+  <p class="essence reveal">Ciência de dados de ponta, traduzida para o chão de fábrica — e para qualquer pessoa entender.</p>
+</section>
+
+<!-- STATS -->
+<section class="stats sec-pad">
+  <div class="wrap">
+    <div class="grid4">
+      <div class="stat reveal"><div class="num"><span data-count="200" data-suffix="">0</span><span>ms</span></div><div class="lbl">Do risco ao aviso no cinto <span style="opacity:.7">(&lt;)</span></div></div>
+      <div class="stat reveal"><div class="num" data-count="17">0</div><div class="lbl">Pontos do corpo analisados</div></div>
+      <div class="stat reveal"><div class="num" data-count="3">0</div><div class="lbl">Normas: NR-6, NR-17, NR-35</div></div>
+      <div class="stat reveal"><div class="num" data-count="4">0</div><div class="lbl">Fases integradas em um sistema</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec-pad" id="como">
+  <div class="wrap center">
+    <span class="eyebrow reveal">Como funciona</span>
+    <h2 class="reveal" style="font-size:clamp(30px,5vw,50px)">Da câmera à ação, em um instante</h2>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <div class="n">1</div>
+        <svg class="fic" viewBox="0 0 48 48" fill="none"><rect x="8" y="14" width="26" height="20" rx="4" stroke="#0071e3" stroke-width="3"/><path d="M34 20l8-5v18l-8-5" stroke="#0071e3" stroke-width="3" stroke-linejoin="round"/></svg>
+        <h4>Captura</h4>
+        <p>As câmeras IP da fábrica alimentam o Tortuga, ao vivo — inclusive em iluminação difícil.</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="n">2</div>
+        <svg class="fic" viewBox="0 0 48 48" fill="none"><rect x="10" y="10" width="28" height="28" rx="7" stroke="#0071e3" stroke-width="3"/><circle cx="24" cy="24" r="6" fill="#0071e3"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6" stroke="#0071e3" stroke-width="3" stroke-linecap="round"/></svg>
+        <h4>Inteligência</h4>
+        <p>A IA detecta EPIs e postura, funde múltiplas câmeras e calcula o risco preditivo.</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="n">3</div>
+        <svg class="fic" viewBox="0 0 48 48" fill="none"><rect x="10" y="8" width="20" height="32" rx="5" stroke="#0071e3" stroke-width="3"/><circle cx="20" cy="34" r="2.5" fill="#0071e3"/><path d="M34 18c4 3 4 9 0 12" stroke="#0071e3" stroke-width="3" stroke-linecap="round"/></svg>
+        <h4>Ação</h4>
+        <p>O dashboard orienta o gestor e o cinto avisa o operador na hora — proteção ativa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIAL / FÁBRICA REAL -->
+<section class="pillars sec-pad">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:50px">
+      <span class="eyebrow reveal">Feito para a fábrica real</span>
+      <h2 class="reveal" style="font-size:clamp(30px,5vw,50px)">Robusto onde importa</h2>
+    </div>
+    <div class="grid3">
+      <div class="card reveal"><h3>Múltiplas câmeras</h3><p>Fusão de vários ângulos resolve a oclusão: se um EPI aparece em qualquer câmera, o sistema sabe.</p></div>
+      <div class="card reveal"><h3>Iluminação adversa</h3><p>Realce automático de contraste e brilho mantém a detecção firme em ambientes escuros ou estourados.</p></div>
+      <div class="card reveal"><h3>Auditoria confiável</h3><p>Registro de eventos à prova de adulteração — cada ocorrência é rastreável e verificável.</p></div>
+      <div class="card reveal"><h3>Roda na sua máquina</h3><p>Aproveita a GPU para tempo real e é replicável de estação em estação, sem depender da nuvem.</p></div>
+      <div class="card reveal"><h3>Risco por área</h3><p>A IA sugere o nível de risco de cada área; a decisão final é sempre do gestor.</p></div>
+      <div class="card reveal"><h3>Baixo consumo no cinto</h3><p>O vestível foi pensado para durar o turno, com modo de economia de energia.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INOVAÇÃO -->
+<section class="wrap sec-pad">
+  <div class="inno reveal">
+    <h2>Segurança que ensina, não que pune</h2>
+    <p>O Tortuga transforma o cumprimento das normas em algo positivo: reconhece o operador que faz certo e devolve orientação personalizada em vez de repreensão. Cultura de segurança, construída todo dia.</p>
+    <div class="chips">
+      <span class="chip">Gamificação positiva</span>
+      <span class="chip">Feedback educativo</span>
+      <span class="chip">Sequências &amp; conquistas</span>
+      <span class="chip">Linguagem não punitiva</span>
+    </div>
+  </div>
+</section>
+
+<!-- NORMS -->
+<section class="norms wrap sec-pad">
+  <div class="center" style="margin-bottom:44px">
+    <span class="eyebrow reveal">Fundamentado nas normas</span>
+    <h2 class="reveal" style="font-size:clamp(28px,4.6vw,46px)">Conformidade com base regulatória</h2>
+  </div>
+  <div class="grid3">
+    <div class="norm reveal"><div class="code">NR-6</div><h4>Equipamentos de proteção</h4><p>Verifica o uso correto dos EPIs exigidos por função e por área.</p></div>
+    <div class="norm reveal"><div class="code">NR-17</div><h4>Ergonomia</h4><p>Avalia posturas e esforços que geram lesões por esforço repetitivo.</p></div>
+    <div class="norm reveal"><div class="code">NR-35</div><h4>Trabalho em altura</h4><p>Detecta quedas e situações de risco de integridade em tempo real.</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="equipe">
+  <div class="wrap">
+    <div class="flogo">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 4c8 0 14 6.4 14 15 0 8.2-6 14-14 14S6 27.2 6 19C6 10.4 12 4 20 4Z" fill="#0071e3"/>
+        <path d="M20 9.5 25 13v6l-5 3.5L15 19v-6l5-3.5Z" fill="#fff" opacity=".9"/>
+        <circle cx="31" cy="14" r="2.4" fill="#0071e3"/>
+      </svg>
+      Tortuga
+    </div>
+    <p class="muted" style="max-width:520px;margin:0 auto">Proteção ativa para a indústria. Um projeto de visão computacional e ciência de dados aplicado à segurança do trabalho.</p>
+
+    <div class="team">
+      <div class="t-title">Equipe</div>
+      <div class="names">
+        <div class="member"><span class="mn">Celso Fernando Ferrer Singh</span><span class="rm">RM 565643</span></div>
+        <div class="member"><span class="mn">Juan Alberto Lenis Rodriguez</span><span class="rm">RM 559744</span></div>
+        <div class="member"><span class="mn">Henrique Monteiro Khouri</span><span class="rm">RM 555572</span></div>
+        <div class="member"><span class="mn">Rodrigo Arantes da Silva Philippi</span><span class="rm">RM 557594</span></div>
+        <div class="member"><span class="mn">Kagio Miura Neto</span><span class="rm">RM 5592212</span></div>
+      </div>
+    </div>
+
+    <div class="small">
+      Projeto Tortuga · Innovation Challenge CUP 2026 · FIAP × SPI<br>
+      Apresentado no FIAP NEXT · Demonstração para empresas e visitantes
+    </div>
+  </div>
+</footer>
+
+<script>
+  // progressive enhancement
+  document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
+
+  // nav shadow on scroll
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ nav.classList.toggle('scrolled', window.scrollY>10); };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // mobile menu
+  var tgl=document.getElementById('navtoggle'), links=document.getElementById('navlinks');
+  tgl.addEventListener('click', function(){ links.classList.toggle('open'); });
+  links.addEventListener('click', function(e){ if(e.target.tagName==='A') links.classList.remove('open'); });
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // count-up stats
+  function animateCount(el){
+    var target=parseInt(el.getAttribute('data-count'),10), dur=1100, t0=null;
+    function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1);
+      el.textContent=Math.round((1-Math.pow(1-p,3))*target); if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var sio=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ animateCount(en.target); sio.unobserve(en.target); } });
+  }, {threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){ sio.observe(el); });
+</script>
+</body>
+</html>
