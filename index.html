@@ -25,7 +25,7 @@
   a{color:var(--blue);text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   .eyebrow{display:inline-block;font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--blue);text-transform:none;margin-bottom:14px}
-  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.06}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.1}
   section{position:relative}
   .sec-pad{padding:110px 0}
   .center{text-align:center}
@@ -45,7 +45,7 @@
 
   /* HERO */
   .hero{padding:76px 0 30px;text-align:center;background:radial-gradient(1200px 500px at 50% -10%, #eef5ff 0%, #ffffff 60%)}
-  .hero h1{font-size:clamp(52px,10vw,112px);font-weight:700;background:linear-gradient(180deg,#1d1d1f 0%,#333 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero h1{font-size:clamp(52px,10vw,112px);font-weight:700;line-height:1.14;padding-bottom:.06em;background:linear-gradient(180deg,#1d1d1f 0%,#333 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero .tagline{font-size:clamp(22px,4.4vw,40px);font-weight:600;margin-top:6px;letter-spacing:-.02em}
   .hero .tagline b{background:linear-gradient(90deg,var(--blue),#38b6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero p.lead{max-width:640px;margin:22px auto 0;font-size:clamp(17px,2.2vw,21px);color:var(--gray)}
@@ -57,6 +57,7 @@
   .btn-ghost:hover{text-decoration:underline}
   .hero-visual{max-width:900px;margin:48px auto 0}
   .hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,60,140,.14))}
+  .brand-badge{width:150px;height:150px;object-fit:cover;border-radius:30px;box-shadow:0 14px 46px rgba(0,90,220,.32);display:block;margin:0 auto 24px}
 
   /* STATEMENT */
   .statement{padding:120px 0}
@@ -129,6 +130,7 @@
   /* FOOTER */
   footer{background:var(--bg2);padding:70px 0 40px;text-align:center;border-top:1px solid var(--line)}
   footer .flogo{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:22px;margin-bottom:10px}
+  .footer-logo{width:112px;height:112px;object-fit:cover;border-radius:24px;box-shadow:0 10px 34px rgba(0,90,220,.28);display:block;margin:0 auto}
   footer .team{margin-top:26px}
   footer .team .t-title{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--gray2);margin-bottom:12px}
   footer .team .names{display:flex;gap:16px 36px;flex-wrap:wrap;justify-content:center}
@@ -187,6 +189,7 @@
 <!-- HERO -->
 <section class="hero" id="visao">
   <div class="wrap">
+    <img src="tortuga-logo.png" alt="Tortuga Security" class="brand-badge reveal" width="150" height="150">
     <span class="eyebrow reveal">Proteção ativa para a indústria</span>
     <h1 class="reveal">Tortuga</h1>
     <div class="tagline reveal">Enxerga. Entende. <b>Antecipa.</b></div>
@@ -542,12 +545,7 @@
 <footer id="equipe">
   <div class="wrap">
     <div class="flogo">
-      <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path d="M20 4c8 0 14 6.4 14 15 0 8.2-6 14-14 14S6 27.2 6 19C6 10.4 12 4 20 4Z" fill="#0071e3"/>
-        <path d="M20 9.5 25 13v6l-5 3.5L15 19v-6l5-3.5Z" fill="#fff" opacity=".9"/>
-        <circle cx="31" cy="14" r="2.4" fill="#0071e3"/>
-      </svg>
-      Tortuga
+      <img src="tortuga-logo.png" alt="Tortuga Security" class="footer-logo">
     </div>
     <p class="muted" style="max-width:520px;margin:0 auto">Proteção ativa para a indústria. Um projeto de visão computacional e ciência de dados aplicado à segurança do trabalho.</p>
 
