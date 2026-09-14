@@ -403,7 +403,7 @@
       <span class="tag gold">O grande diferencial · Ciência de dados</span>
       <h2>Não conta acidentes. Prevê.</h2>
       <p>A maioria dos sistemas apenas registra o que já aconteceu. O Tortuga vai além: modela a <b>taxa de eventos</b> de cada operador e de cada área com a distribuição de Poisson e calcula a <b>probabilidade de um incidente no próximo turno</b>.</p>
-      <p>E valida com rigor: um teste de hipóteses aponta quem está significativamente acima da média — sinal real, não acaso. O gestor age de forma preventiva, com treinamento dirigido a quem mais precisa.</p>
+      <p>E valida com rigor: um teste de hipóteses aponta quem está significativamente acima da média — sinal real, não acaso. O modelo ainda <b>checa a si mesmo</b>: se os dados forem irregulares demais, ele fica mais conservador sozinho (Binomial Negativa). O gestor age de forma preventiva, com treinamento dirigido a quem mais precisa.</p>
     </div>
     <div class="f-art reveal">
       <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" aria-label="Risco preditivo">
@@ -456,7 +456,20 @@
       </details>
     </div>
   </div>
-  <div class="numbox reveal"><b>Traduzindo:</b> um operador que costuma escorregar ~1,5 vez por turno tem cerca de <b>78%</b> de chance de repetir no próximo — e a conta prova que não é coincidência. O gestor age <b>antes</b>, com quem realmente precisa.</div>
+  <div class="card reveal" style="margin-top:22px;border-left:3px solid #e0a100">
+    <div class="stat-k" style="color:#a86400">4 · Binomial Negativa · a prova dos nove</div>
+    <h3>Quando os dados são teimosos</h3>
+    <p>A Poisson supõe que os operadores se comportam de forma parecida. Mas e se um punhado deles concentra quase todas as ocorrências? Aí a variação fica <b>maior</b> do que a Poisson espera — a chamada <b>superdispersão</b>. O Tortuga <b>mede isso</b> (um índice φ) e, quando acontece, troca sozinho para a <b>Binomial Negativa</b>: alarga a margem de erro e fica mais exigente para acusar alguém. Assim <b>nunca dá um alarme confiante demais</b> — e quem é sinalizado, é de verdade.</p>
+    <p class="muted" style="font-size:14.5px;margin-top:8px">A Poisson é um <b>caso particular</b> da Binomial Negativa (sem dispersão extra). Começamos pela mais simples e só ativamos a mais robusta quando os próprios dados pedem — parcimônia com segurança.</p>
+    <p style="margin-top:12px">Tem ainda uma segunda função, que fecha o trabalho: a Poisson diz <b>qual a chance</b> no próximo turno; a Binomial Negativa (na forma da <b>Geométrica</b>, “quantas tentativas até o próximo”) diz <b>em quantos turnos</b> o próximo incidente tende a acontecer. O gestor não só sabe <b>quem</b> está em risco — sabe <b>quando</b> agir.</p>
+    <details class="math"><summary>Ver a matemática</summary>
+      <div class="formula">φ = (1 ⁄ gl) · Σ (kᵢ − λ₀tᵢ)² ⁄ (λ₀tᵢ)</div>
+      <div class="fcap">Índice de dispersão. φ ≈ 1 → Poisson; φ &gt; 1 → Binomial Negativa / quasi-Poisson (IC × √φ e p-valor robusto).</div>
+      <div class="formula" style="margin-top:10px">E[turnos até o próximo] = 1 ⁄ p ,  p = 1 − e^(−λ̂)</div>
+      <div class="fcap">Tempo de espera pela Geométrica = Binomial Negativa (r = 1). P(nos próximos m turnos) = 1 − (1 − p)ᵐ.</div>
+    </details>
+  </div>
+  <div class="numbox reveal"><b>Traduzindo:</b> um operador que costuma escorregar ~1,5 vez por turno tem cerca de <b>78%</b> de chance de repetir no próximo — e a conta prova que não é coincidência. Se os dados forem irregulares demais, o modelo se torna mais cauteloso sozinho. O gestor age <b>antes</b>, com quem realmente precisa.</div>
   <p class="essence reveal">Ciência de dados de ponta, traduzida para o chão de fábrica — e para qualquer pessoa entender.</p>
 </section>
 
